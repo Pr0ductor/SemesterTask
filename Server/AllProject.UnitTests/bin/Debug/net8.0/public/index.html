@@ -1,0 +1,441 @@
+<!-- Админ панель 716 строка-->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<title>KinoGo - Гоу смотреть кино онлайн вместе с нами!!</title>
+<meta charset="utf-8">
+<meta name="title" content="KinoGo - Гоу смотреть кино онлайн вместе с нами!!">
+<link rel="canonical" href="">
+<link rel="preconnect" href="``" fetchpriority="high">
+	<link rel="preload" href="/assets/css/styles.css" as="style">
+	<link rel="shortcut icon" href="/assets/images/favicon.ico">
+	<link href="/assets/css/styles.css" type="text/css" rel="stylesheet">
+</head>
+<body class="dt">
+	<div class="wrapper">
+		<div class="wrapper__container wrapper__container--main">
+			<header class="header d-flex ai-center vw100">
+				<a href="" class="header__logo logo"></a>
+				<div class="header__login d-flex ai-center gap-5 has-icon icon-play-circle p-relative">
+					{%if<{{IsAuthorized}}>%}
+					<p>{{Login}}</p>
+					{%else%}
+					<button class="header__login-btn btn-without-bg js-show-login">Войти</button>
+					{%/if%}
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+							const loginBtn = document.querySelector('.js-show-login');
+							const loginForm = document.querySelector('.login');
+							
+							// Открытие/закрытие модального окна
+							loginBtn.addEventListener('click', function(e) {
+								e.stopPropagation();
+								loginForm.classList.toggle('active');
+							});
+							
+							// Закрытие по клику вне формы
+							document.addEventListener('click', function(e) {
+								if (!loginForm.contains(e.target) && !loginBtn.contains(e.target)) {
+									loginForm.classList.remove('active');
+								}
+							});
+							
+							// Предотвращаем закрытие при клике на саму форму
+							loginForm.addEventListener('click', function(e) {
+								e.stopPropagation();
+							});
+						});
+						</script>
+<div class="login login--not-logged serv">
+	<form method="post" class="login__content d-flex fd-column gap-10" action="/login">
+		<div class="login__row serv__links d-flex fd-column gap-10">
+			<div class="login__row-caption d-flex jc-space-between">Ваш логин: </div>
+			<div class="login__input"><input type="text" name="login" id="login_name" placeholder="Ваш логин" autocomplete="on"></div>
+		</div>
+		<div class="login__row serv__links d-flex fd-column gap-10">
+			<div class="login__row-caption d-flex jc-space-between">Ваш пароль: </div>
+			<div class="login__input"><input type="password" name="password" id="login_password" placeholder="Ваш пароль" autocomplete="on"></div>
+		</div>
+<!--		<label class="login__row has-checkbox" for="login_not_save">-->
+<!--			<input type="checkbox" name="login_not_save" id="login_not_save" value="0" checked>-->
+<!--			<span>Запомнить меня</span>-->
+<!--		</label>-->
+		<div class="login__row">
+			<button type="submit">Войти на сайт</button>
+<!--			<input name="login" type="hidden" id="login" value="submit">-->
+		</div>
+	</form>
+</div>
+				</div>
+				<div class="header__search search-block">
+					<form id="quicksearch" method="post" class="search-block__form wrapper__container">
+						<input type="hidden" name="do" value="search">
+						<input type="hidden" name="subaction" value="search">
+						<input class="search-block__input" id="story" placeholder="Поиск по сайту..." type="text" readonly>
+						<button class="search-block__btn has-icon icon-search btn-without-bg" aria-label="Искать" type="button"><span>Найти</span></button>
+					</form>
+				</div>
+				<button class="header__btn-theme btn-without-bg has-icon icon-sun" aria-label="Переключить тему"></button>
+			</header>
+			<!-- END HEADER -->
+			<div class="carousel">
+				<ul class="carousel__menu d-flex">
+					<li><a href="">Главная</a></li>
+					<li><a href="">Фильмы</a></li>
+					<li><a href="">Сериалы</a></li>
+					<li><a href="">Дорамы</a></li>
+                    <li><a href="">Мультфильмы</a></li>
+					<li><a href="">Аниме</a></li>
+					<li><a href="">Подборки</a></li>
+					<li><a href="">Топ 100</a></li>
+					<li><a href="" class="is-active">Случайное</a></li>
+				</ul>
+                <div class="carousel__content">
+					<div class="has-carou" id="main-carousel">
+	<a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-08/bd7ad501c3_volk-s-uoll-strit.webp" loading="lazy" alt="Постер к Волк с Уолл-стрит">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Волк с Уолл-стрит</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-08/odin-doma.webp" loading="lazy" alt="Постер к Один дома">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Один дома</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-07/ivan-vasilevich-menjaet-professiju.webp" loading="lazy" alt="Постер к Иван Васильевич меняет профессию">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Иван Васильевич меняет профессию</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-11/zveropolis-poster.webp" loading="lazy" alt="Постер к Зверополис">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Зверополис</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-11/ljubov-i-golubi-poster.webp" loading="lazy" alt="Постер к Любовь и голуби">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Любовь и голуби</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-09/nachalo.webp" loading="lazy" alt="Постер к Начало">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Начало</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-08/interstellar.webp" loading="lazy" alt="Постер к Интерстеллар">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Интерстеллар</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-11/legenda-poster.webp" loading="lazy" alt="Постер к Легенда">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Легенда</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-09/titanik.webp" loading="lazy" alt="Постер к Титаник">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Титаник</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-08/5ce45a0315_shrjek.webp" loading="lazy" alt="Постер к Шрэк">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Шрэк</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-12/postuchis-v-moju-dver-poster.webp" loading="lazy" alt="Постер к Постучись в мою дверь">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Постучись в мою дверь</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-11/kriminalnoe-chtivo-poster.webp" loading="lazy" alt="Постер к Криминальное чтиво">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Криминальное чтиво</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-07/kavkazskaja-plennica-ili-novye-prikljuchenija-shurika.webp" loading="lazy" alt="Постер к Кавказская пленница, или Новые приключения Шурика">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Кавказская пленница, или Новые приключения Шурика</div>
+	</div>
+</a><a class="carou d-flex fd-column" href="">
+	<div class="carou__img img-responsive anim">
+		<img src="/assets/posts/2024-08/strazhi-galaktiki.webp" loading="lazy" alt="Постер к Стражи Галактики">
+	</div>
+	<div class="carou__desc">
+		<div class="carou__title line-clamp">Стражи Галактики</div>
+	</div>
+</a>					
+    </div>
+				</div>
+			</div>
+			<!-- END CAROUSEL -->
+			<div class="wrapper__cols">
+				<main class="content">
+					<div class="sect">
+						<div class="sect__header main-title d-flex ai-center gap-10">
+							<h1 class="sect__title has-icon icon-play-circle">КиноГО онлайн бесплатно</h1>
+						</div>
+						<div class="sect__content grid-items" id="dle-content">
+
+
+
+
+							{%for% movie %in% movies}
+							<div class="item item--short grid-item">
+								<div class="item__header d-flex ai-center gap-10">
+									<a href="http://localhost:8888/movie?movieTitle={{movie.title}}" class="item__title flex-grow-1">{{movie.title}}</a>
+									<div class="item__meta d-flex jc-space-between ai-center">
+										<div class="item__rates d-flex gap-10">
+										</div>
+										<div class="item__rating p-relative">
+											<div class="item__rating-stars">
+												<div data-ratig-layer-id='7365'>
+													<div class="rating">
+														<ul class="unit-rating">
+															<li class="current-rating" style="width:80%;">80</li>
+															<li><a href="#" title="Плохо" class="r1-unit">1</a></li>
+															<li><a href="#" title="Приемлемо" class="r2-unit">2</a></li>
+															<li><a href="#" title="Средне" class="r3-unit">3</a></li>
+															<li><a href="#" title="Хорошо" class="r4-unit">4</a></li>
+															<li><a href="#" title="Отлично" class="r5-unit">5</a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+											<div class="item__rating-votes">4.2/5 (<span data-vote-num-id="7365">13</span> гол.)</div>
+										</div>
+										<div class="item__fav">
+											<span class="has-icon icon-bookmark js-guest-login" aria-label="В избранное 7365"></span>
+										</div>
+									</div>
+								</div>
+								<a href="http://localhost:8888/movie?movieTitle={{movie.title}}" class="item__img img-fixed-size">
+									<img src="{{movie.poster_url}}" alt="{{movie.Title}}" loading="lazy">
+									<div class="item__label-group d-flex">
+									</div>
+									<div class="item__age-label">TS</div>
+								</a>
+								<div class="item__desc">
+									<ul class="item__list d-flex fd-column">
+										<li><span>Год выпуска:</span> {{movie.release_year}}</li>
+										<li><span>Страна:</span>{{movie.country}}</li>
+										<li><span>Жанр:</span> {{movie.genre}}</li>
+										<li><span>Продолжительность:</span> {{movie.duration}} мин.</li>
+									</ul>
+									<div class="item__text line-clamp">{{movie.description}}</div>
+								</div>
+								<div class="item__footer d-flex ai-center">
+									<a href="http://localhost:8888/movie?movieTitle={{movie.title}}" class="item__btn btn">Смотреть онлайн</a>
+								</div>
+							</div>
+							{%/for%}
+
+<!-- АДМИН ПАНЕЛЬ -->
+
+							
+</div>
+					</div>
+				</main>
+				<!-- END CONTENT -->
+					<aside class="sidebar">
+					<div class="sb js-this-in-mobile-menu">
+						<div class="sb__title">Панель навигации <span class="sb__title-label">New</span></div>
+						<div class="sb__content sb__menu">
+							<div class="sb__menu-col">
+								<div class="sb__menu-caption">Фильмы <span>(2092)</span></div>
+								<ul class="sb__menu-list d-flex fd-column gap-5">
+                                    <li><a href="">Биографии</a><span>(394)</span></li><li><a href="">Боевики</a><span>(1799)</span></li><li><a href="">Вестерны</a><span>(94)</span></li><li><a href="">Военные</a><span>(260)</span></li><li><a href="">Детективы</a><span>(817)</span></li><li><a href="">Детские</a><span>(25)</span></li><li><a href="">Документальные</a><span>(50)</span></li><li><a href="">Драмы</a><span>(3070)</span></li><li><a href="">Исторические</a><span>(265)</span></li><li><a href="">Комедии</a><span>(2142)</span></li><li><a href="">Криминальные</a><span>(1340)</span></li><li><a href="">Мелодрамы</a><span>(1231)</span></li><li><a href="">Музыкальные</a><span>(169)</span></li><li><a href="">Мюзиклы</a><span>(73)</span></li><li><a href="">Приключения</a><span>(1088)</span></li><li><a href="">Семейные</a><span>(451)</span></li><li><a href="">Cпортивные</a><span>(199)</span></li><li><a href="">Триллеры</a><span>(2259)</span></li><li><a href="">Ужасы</a><span>(942)</span></li><li><a href="">Фантастика</a><span>(774)</span></li><li><a href="">Фэнтези</a><span>(713)</span></li>
+								</ul>
+							</div>
+							<div class="sb__menu-col">
+								<div class="sb__menu-caption">По году</div>
+								<ul class="sb__menu-list d-flex fd-column gap-5">
+									<li><a href="">2022 года</a></li>
+									<li><a href="">2023 года</a></li>
+									<li><a href="">2024 года</a></li>
+								</ul>
+								<div class="sb__menu-caption">По странам</div>
+								<ul class="sb__menu-list d-flex fd-column gap-5">
+									<li><a href="">Американские</a></li>
+									<li><a href="">Британские</a></li>
+									<li><a href="">Российские</a></li>
+									<li><a href="">Индийские</a></li>
+									<li><a href="">Немецкие</a></li>
+									<li><a href="">Французкие</a></li>
+								</ul>
+								<div class="sb__menu-caption">Сериалы <span>(371)</span></div>
+								<ul class="sb__menu-list d-flex fd-column gap-5">
+									<li class="sb__menu-marker"><a href="">Русские</a></li>
+									<li class="sb__menu-marker"><a href="">Зарубежные</a></li>
+									<li class="sb__menu-marker"><a href="">Турецкие</a></li>
+                                    <li><a href="">Аниме сериалы</a><span>(65)</span></li>
+                                    <li><a href="">Мультсериалы</a><span>(11)</span></li>
+                                   	<li><a href="">ТВ-шоу</a><span>(1)</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="sb">
+						<div class="sb__title">Скоро на сайте</div>
+						<div class="sb__content sb__soon">
+					<div class="soon clearfix has-expanded-link p-relative">
+    <div class="soon__img img-fixed-size"><img src="/assets/posts/2024-09/ja-legenda-2.webp" alt="Постер к Я – легенда 2" loading="lazy"></div>
+    <a href="" class="soon__title has-expanded-link__trg">Я – легенда 2</a>
+    <div class="soon__desc line-clamp">Продолжение пост-апокалиптической истории, в которой остатки выжившего человечества пытаются найти для себя безопасное место. Подполковник Роберт Невилл работал в медицинском секторе и проживает в</div>
+</div><div class="soon clearfix has-expanded-link p-relative">
+    <div class="soon__img img-fixed-size"><img src="/assets/posts/2024-09/zhivaja-stal-2.webp" alt="Постер к Живая сталь 2" loading="lazy"></div>
+    <a href="" class="soon__title has-expanded-link__trg">Живая сталь 2</a>
+    <div class="soon__desc line-clamp">Продолжение истории Чарли Кентона, что смог победить опытного врага тренируя старого робота. Действия всё также происходят в мире, где в будущем появились развлечения для человечества. Таким</div>
+</div>
+                        </div>
+					</div>
+					<div class="sb">
+						<div class="sb__title">Обновления сериалов</div>
+						<div class="sb__content sb__upd2">
+      <div class="upd2 item has-expanded-link p-relative">
+    <div class="upd2__img img-responsive">
+        <img src="/assets/posts/2024-11/terapija-poster.webp" alt="Постер к Терапия" loading="lazy">
+        <div class="item__label">2 сезон 12 серия</div>
+    </div>
+    <a href="" class="upd2__title has-expanded-link__trg">Терапия</a>
+</div><div class="upd2 item has-expanded-link p-relative">
+    <div class="upd2__img img-responsive">
+        <img src="/assets/posts/2024-11/djuna-prorochestvo-poster.webp" alt="Постер к Дюна: Пророчество" loading="lazy">
+        <div class="item__label">1 сезон 6 серия</div>
+    </div>
+    <a href="" class="upd2__title has-expanded-link__trg">Дюна: Пророчество</a>
+</div><div class="upd2 item has-expanded-link p-relative">
+    <div class="upd2__img img-responsive">
+        <img src="/assets/posts/2024-11/dandadan-poster.webp" alt="Постер к Дандадан" loading="lazy">
+        <div class="item__label">1 сезон 12 серия</div>
+    </div>
+    <a href="" class="upd2__title has-expanded-link__trg">Дандадан</a>
+</div><div class="upd2 item has-expanded-link p-relative">
+    <div class="upd2__img img-responsive">
+        <img src="/assets/posts/2024-12/eko-iz-sjengoku-poster.webp" alt="Постер к Ёко из Сэнгоку" loading="lazy">
+        <div class="item__label">2 сезон 21 серия</div>
+    </div>
+    <a href="" class="upd2__title has-expanded-link__trg">Ёко из Сэнгоку</a>
+</div>                      
+						</div>
+					</div>
+        			<div class="sb">
+						<div class="sb__content sb__soon">
+						<div class="soon clearfix has-expanded-link p-relative">
+    <div class="soon__img img-fixed-size"><img src="/assets/posts/2024-10/rycar-semi-korolevstv.webp" alt="Постер к Рыцарь Семи Королевств: Межевой рыцарь" loading="lazy"></div>
+    <a href="" class="soon__title has-expanded-link__trg">Рыцарь Семи Королевств: Межевой рыцарь</a>
+    <div class="soon__desc line-clamp">Юг Вестероса. Необычное место, куда решит отправиться не каждый воин, по причине специфики самого региона. Есть шанс потерять жизнь или стать инвалидом на всю жизнь, так как тут встречается разный</div>
+</div><div class="soon clearfix has-expanded-link p-relative">
+    <div class="soon__img img-fixed-size"><img src="/assets/posts/2024-10/sorvigolova_-rozhdennyj-zanovo.webp" alt="Постер к Сорвиголова: Рожденный заново" loading="lazy"></div>
+    <a href="" class="soon__title has-expanded-link__trg">Сорвиголова: Рожденный заново</a>
+    <div class="soon__desc line-clamp">Продолжение истории Мэта Мердока, что из простого адвоката превращается в супергероя, способного бросить вызов опасным криминальным группировкам. В прошлом Мэрдок окончил университет с отличием,</div>
+</div>
+                        </div>
+					</div>
+					<div class="sb">
+						<div class="sb__title">Последние комментарии</div>
+						<div class="sb__content sb__comms">
+							<div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="Гость"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Крейвен-охотник</a>
+		<div class="lcomm__date">21:51</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>Гость:</span> Ну ,если совсем делать нечего - можно посмотреть. Вялая троечка.</div>
+</div><div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="trabuku22"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Одни из нас</a>
+		<div class="lcomm__date">05:23</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>trabuku22:</span> Где находятся субтитры к видео?</div>
+</div><div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="KatjaRaw"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Миссия: Красный</a>
+		<div class="lcomm__date">21:09</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>KatjaRaw:</span> Очень круто. Особенный плюс за оригинальный звук.</div>
+</div><div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="Liudmila"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Домовой</a>
+		<div class="lcomm__date">18:54</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>Liudmila:</span> очень мрачное кино,</div>
+</div><div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="1234567890"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Субстанция</a>
+		<div class="lcomm__date">11:37</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>1234567890:</span> Это какой то КАПЕЦ!!!! Вроде бы понравилось, а вроде бы было в конце так отвратительно, в выворачивало! А так задумка бомба!</div>
+</div><div class="lcomm">
+	<div class="lcomm__header d-flex ai-center gap-10 has-icon icon-arrow-right icon-pull-right">
+		<div class="lcomm__av img-fixed-size"><img src="/assets/dleimages/noavatar.png" loading="lazy" alt="Raven"></div>
+		<a class="lcomm__link flex-grow-1 ws-nowrap" href="">Граф Монте-Кристо</a>
+		<div class="lcomm__date">01:33</div>
+	</div>
+	<div class="lcomm__text line-clamp"><span>Raven:</span> нелепое фуфло и сопли , милиниалы явно делали , граф уже просто монтекрисмас плюшево талирантно унылоплоский и беззубый как уж.</div>
+</div>
+						</div>
+					</div>
+				</aside>
+				<!-- END SIDEBAR -->
+			</div>
+			<!-- END COLS -->
+<div class="descr clearfix">
+	<div class="descr__top">
+		<p>Добро пожаловать на наш сайт КиноГО, который посвящен всем любителям интересного и качественного кино! Любите кино так же сильно, как и мы? Следите за выходом новинок? Не представляете вечер без пары-тройки фильмов? Тогда вы пришли по адресу! На нашем кинотеатре КиноГо вы можете смотреть фильмы онлайн бесплатно и в хорошем качестве, без каких-либо ограничений!</p>
+	</div>
+	<p><img src="/assets/images/kgo/footer-main.jpg" title="просмотр фильмов онлайн">
+<h2>Бесплатные кинофильмы онлайн в хорошем качестве на KinoGo</h2>
+<p>На сайте Киного вы можете наслаждаться просмотром фильмов онлайн совершенно бесплатно и в отличном качестве. Мы предлагаем обширный выбор кинолент, чтобы удовлетворить любые ваши предпочтения и настроения. Наша библиотека регулярно обновляется, чтобы вы всегда могли найти что-то новое и увлекательное для себя. С KinoGo вы забудете о низком качестве и длительном ожидании загрузки. Наша главная цель - предоставить вам наилучший просмотр без регистрации и отправки смс. Всё, что вам нужно сделать, это выбрать фильм, нажать на кнопку «плей» и наслаждаться просмотром! Мы стремимся к вашему комфорту, поэтому все фильмы доступны в HD качестве.</p>
+<h2>Почему стоит выбрать КиноГО?</h2>
+<p>Наш сайт предлагает удобный интерфейс, который позволяет легко найти нужный фильм по названию, жанру или году выпуска. Вы можете наслаждаться фильмами в любое время суток, без ограничений. Все фильмы доступны для онлайн просмотра, и вам не нужно ничего скачивать. Кроме новых релизов, на KinoGo.Net вы найдете и классические фильмы, которые всегда приятно пересмотреть. Мы учитываем все ваши пожелания и постоянно работаем над улучшением вашего опыта просмотра, чтобы он был максимально комфортным и приятным. Присоединяйтесь к миллионам пользователей, которые уже выбрали КиноГО.НЕТ для просмотра фильмов онлайн в хорошем качестве. Смотрите любимые фильмы в любое время и в любом месте. Посетите КиноГО, чтобы смотреть кино онлайн бесплатно и убедитесь в этом сами!</p>	
+</div>
+			<footer class="footer d-flex ai-center jc-center gap-10">
+				<ul class="footer__menu d-flex flex-grow-1">
+					<li><a href="">Главная</a></li>
+					<li><a href="">Правообладателям</a></li>
+					<li><a href="">Рекламодателям</a></li>
+				    <li><a href="">Карта сайта</a></li>
+				</ul>
+				</div>
+			</footer>
+			<!-- END FOOTER -->
+		</div>
+		<!-- END WRAPPER CONTAINER -->
+	</div>
+	<!-- END WRAPPER -->
+	
+
+
+</body>
+</html>
