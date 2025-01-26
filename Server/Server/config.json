@@ -1,7 +1,7 @@
 {
   "FILE_NAME": "config.json",
-  "Domain": "localhost",
-  "Port": 8888,
+  "Domain": "+",
+  "Port": "8888",
   "StaticDirectoryPath": "public/",
   "SmtpClient": {
     "Host": "smtp.yandex.ru",
@@ -11,5 +11,8 @@
   "NetworkCredential": {
     "UserName": "high-skill33@yandex.ru",
     "Password": "uvrstzrhemkckntt"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=db;Database=PersonDB;User Id=sa;Password=P@ssw0rd;"
   }
 }

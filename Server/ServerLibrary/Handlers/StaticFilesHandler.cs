@@ -1,9 +1,11 @@
 using System.Net;
 using HttpServerLibrary.Core;
 using HttpServerLibrary.Configurations;
+using HttpServerLibrary.Handlers;
+using HttpServerLibrary.Models;
 
 
-namespace HttpServerLibrary.Handlers;
+namespace HttpServerLibrary;
 
 internal sealed class StaticFilesHandler : Handler
 {

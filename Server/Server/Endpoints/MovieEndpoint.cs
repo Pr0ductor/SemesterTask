@@ -6,6 +6,7 @@ using HttpServerLibrary.Attributes;
 using HttpServerLibrary.Configurations;
 using HttpServerLibrary.Core;
 using HttpServerLibrary.Core.HttpResponse;
+using HttpServerLibrary.Models;
 using MyORMLibrary;
 using MyServer.services;
 using Server.Models;
@@ -23,7 +24,7 @@ public class MoviesEndpoint : EndpointBase
         var response = File.ReadAllText(localpath);
 
         var templateEngine = new HtmlTemplateEngine();
-        var movieContext = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var movieContext = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var movies = movieContext.GetAll();
 
 
@@ -46,7 +47,7 @@ public class MoviesEndpoint : EndpointBase
             var userId = Int32.Parse(SessionStorage.GetUserId(Context.Request.Cookies["session-token"].Value));
             if (userId != 0)
             {
-                var connection = new SqlConnection(AppConfig.GetInstance().ConnectionString);  
+                var connection = new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]);  
                 var dbContext = new ORMContext<User>(connection);
                 model.Login = dbContext.FirstOrDefault(u => u.Id == userId).Login;
             }

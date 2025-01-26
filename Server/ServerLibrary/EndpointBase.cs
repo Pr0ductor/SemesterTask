@@ -1,5 +1,6 @@
 using HttpServerLibrary.Configurations;
 using HttpServerLibrary.Core.HttpResponse;
+using HttpServerLibrary.Models;
 using MyHttpServer.Core.HttpResponse;
 using ServerLibrary;
 

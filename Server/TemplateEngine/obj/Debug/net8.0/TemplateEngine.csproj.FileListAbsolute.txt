@@ -20,3 +20,4 @@
 /Users/denis/Downloads/Server/TemplateEngine/obj/Debug/net8.0/refint/TemplateEngine.dll
 /Users/denis/Downloads/Server/TemplateEngine/obj/Debug/net8.0/TemplateEngine.pdb
 /Users/denis/Downloads/Server/TemplateEngine/obj/Debug/net8.0/ref/TemplateEngine.dll
+/Users/denis/Downloads/Server/TemplateEngine/obj/Debug/net8.0/TemplateEngine.sourcelink.json

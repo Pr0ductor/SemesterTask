@@ -4,6 +4,7 @@ using HttpServerLibrary.Attributes;
 using HttpServerLibrary.Configurations;
 using HttpServerLibrary.Core;
 using HttpServerLibrary.Core.HttpResponse;
+using HttpServerLibrary.Models;
 using MyORMLibrary;
 using MyServer.services;
 using Server.Models;
@@ -16,7 +17,7 @@ public class LoginEndpoint : EndpointBase
     [Post("login")]
     public IHttpResponseResult Login(string login,  string password)
     {
-        var connection = new SqlConnection(AppConfig.GetInstance().ConnectionString);  
+        var connection = new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]);  
         var dbContext = new ORMContext<User>(connection);
         var check = dbContext.FirstOrDefault(u => u.Login == login && u.Password == password);
         if (check != null)

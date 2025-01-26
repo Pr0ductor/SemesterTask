@@ -2,6 +2,7 @@ using System.Data;
 using System.Data.SqlClient;
 using AllProject.UnitTests.Models;
 using HttpServerLibrary.Configurations;
+using HttpServerLibrary.Models;
 using MyORMLibrary;
 
 namespace AllProject.UnitTests;
@@ -19,7 +20,7 @@ public class ORMContextTests
     public void Setup()
     {
         // Настройте соединение с базой данных для тестирования
-        _dbConnection = new SqlConnection(AppConfig.GetInstance().ConnectionString);
+        _dbConnection = new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]);
         _context = new ORMContext<Entity>(_dbConnection);
 
         // Очистите таблицу перед каждым тестом

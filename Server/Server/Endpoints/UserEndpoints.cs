@@ -12,7 +12,7 @@ public class UserEndpoints : EndpointBase
     public IHttpResponseResult GetUsers()
     {
         var users =new List<User>();
-        string connectionString = @"Data Source = localhost;Initial Catalog=PersonDB;User ID=sa;Password=MidnightProductor007;";
+        string connectionString = @"Data Source = db;Initial Catalog=PersonDB;User ID=sa;Password=MidnightProductor007;";
  
         string sqlExpression = "SELECT * FROM Users";
         using (SqlConnection connection = new SqlConnection(connectionString))

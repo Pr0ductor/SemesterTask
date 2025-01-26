@@ -178,3 +178,4 @@
 /Users/denis/Downloads/Server/Server/bin/Debug/net8.0/public/assets/css/admin.css
 /Users/denis/Downloads/Server/Server/bin/Debug/net8.0/public/assets/js/admin-popup.js
 /Users/denis/Downloads/Server/Server/bin/Debug/net8.0/public/assets/js/admin.js
+/Users/denis/Downloads/Server/Server/obj/Debug/net8.0/Server.sourcelink.json

@@ -6,6 +6,7 @@ using HttpServerLibrary.Attributes;
 using HttpServerLibrary.Configurations;
 using HttpServerLibrary.Core;
 using HttpServerLibrary.Core.HttpResponse;
+using HttpServerLibrary.Models;
 using MyORMLibrary;
 using MyServer.services;
 using Server.Helpers;
@@ -48,7 +49,7 @@ public class AdminEndpoint : EndpointBase
         var localPath = "admin_login.html";
         var responseText = ResponseHelper.GetResponseText(localPath);
         var templateEngine = new HtmlTemplateEngine();
-        var admin_context = new ORMContext<Admin>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var admin_context = new ORMContext<Admin>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
 
         // Логирование входных данных
         Console.WriteLine("----- User on admin-login-page -----");
@@ -88,13 +89,13 @@ public class AdminEndpoint : EndpointBase
 
         Console.WriteLine("----- admin on admin-page -----");
 
-        var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var movies = movie_context.GetAll();
 
-        var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var users = user_context.GetAll();
 
-        var admin_context = new ORMContext<Admin>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var admin_context = new ORMContext<Admin>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var admins = admin_context.GetAll();
 
         var templateEngine = new HtmlTemplateEngine();
@@ -142,7 +143,7 @@ public class AdminEndpoint : EndpointBase
     {
         try
         {
-            var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+            var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
             var user = user_context.GetUserByLogin(addUserLogin);
             if (user == null)
             {
@@ -177,7 +178,7 @@ public class AdminEndpoint : EndpointBase
     {
         try
         {
-            var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+            var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
             var user = user_context.GetById(int.Parse(deleteUserId));
             if (deleteUserId != null && user.Login != null)
             {
@@ -214,7 +215,7 @@ public class AdminEndpoint : EndpointBase
     {
         try
         {
-            var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+            var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
             var movie = movie_context.GetByTitle(addMovieTitle);
 
             if (movie != null)
@@ -257,7 +258,7 @@ public class AdminEndpoint : EndpointBase
         try
         {
             Console.WriteLine(deleteMovieId);
-            var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+            var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
             var movie = movie_context.GetById(int.Parse(deleteMovieId));
             if (deleteMovieId != null && movie.title != null)
             {
@@ -279,7 +280,7 @@ public IHttpResponseResult UpdateUser(int updateUserId, string updateUserLogin, 
 {
     try
     {
-        var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var user_context = new ORMContext<User>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var existingUser = user_context.GetById(updateUserId);
         if (existingUser == null)
         {
@@ -319,7 +320,7 @@ public IHttpResponseResult UpdateMovie(int updateMovieId, string updateMovieTitl
 {
     try
     {
-        var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionString));
+        var movie_context = new ORMContext<Movie>(new SqlConnection(AppConfig.GetInstance().ConnectionStrings["DefaultConnection"]));
         var existingMovie = movie_context.GetById(updateMovieId);
 
         if (existingMovie == null)

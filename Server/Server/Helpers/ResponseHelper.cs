@@ -1,4 +1,5 @@
 using HttpServerLibrary.Configurations;
+using HttpServerLibrary.Models;
 
 namespace Server.Helpers;
 

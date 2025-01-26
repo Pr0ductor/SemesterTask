@@ -31,3 +31,4 @@
 /Users/denis/Downloads/Server/ServerLibrary/obj/Debug/net8.0/refint/ServerLibrary.dll
 /Users/denis/Downloads/Server/ServerLibrary/obj/Debug/net8.0/ServerLibrary.pdb
 /Users/denis/Downloads/Server/ServerLibrary/obj/Debug/net8.0/ref/ServerLibrary.dll
+/Users/denis/Downloads/Server/ServerLibrary/obj/Debug/net8.0/ServerLibrary.sourcelink.json
