@@ -1,0 +1,16 @@
+/Users/denis/Downloads/Server/MyORMLibrary/bin/Debug/net8.0/MyORMLibrary.deps.json
+/Users/denis/Downloads/Server/MyORMLibrary/bin/Debug/net8.0/MyORMLibrary.dll
+/Users/denis/Downloads/Server/MyORMLibrary/bin/Debug/net8.0/MyORMLibrary.pdb
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.csproj.AssemblyReference.cache
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.GeneratedMSBuildEditorConfig.editorconfig
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.AssemblyInfoInputs.cache
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.AssemblyInfo.cs
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.csproj.CoreCompileInputs.cache
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.dll
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/refint/MyORMLibrary.dll
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.pdb
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/ref/MyORMLibrary.dll
+/Users/denis/Downloads/Server/MyORMLibrary/bin/Debug/net8.0/ServerLibrary.dll
+/Users/denis/Downloads/Server/MyORMLibrary/bin/Debug/net8.0/ServerLibrary.pdb
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLib.FCB61E28.Up2Date
+/Users/denis/Downloads/Server/MyORMLibrary/obj/Debug/net8.0/MyORMLibrary.sourcelink.json
